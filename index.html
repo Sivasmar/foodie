@@ -1,1866 +1,823 @@
-<!DOCTYPE html> 
-<html lang="en"> 
-<head> 
-    <meta charset="UTF-8"> 
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <title>Food Website</title> 
- 
-    <!-- font awesome cdn link  --> 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
- 
-    <!-- custom css file link  --> 
-    <!-- <link rel="stylesheet" href="css/style.css"> 
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Food Website</title>
+
+    <!-- font awesome cdn link  -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="./food.css"> 
      
-    <link rel="icon" href="image/favicon.png">   -->
-    <style>
-         @import 
-url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap"); 
-@import 
-url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap"); 
-* { 
-font-family: 'Poppins', sans-serif; 
-margin: 0; 
-padding: 0; -webkit-box-sizing: border-box; 
-box-sizing: border-box; 
-outline: none; 
-border: none; 
-text-decoration: none; 
+    <link rel="icon" href="image/favicon.png">   
+    
+  </head>
+  <body>
+    <header class="header">
+      <a href="#" class="logo"> <i class="fas fa-utensils"></i> foodie </a>
 
-text-transform: capitalize; -webkit-transition: .2s linear; 
-transition: .2s linear; 
-} 
-html { 
-font-size: 62.5%; 
-overflow-x: hidden; 
-scroll-behavior: smooth; 
-scroll-padding-top: 8.5rem; 
-} 
-html::-webkit-scrollbar { 
-width: 1rem; 
-} 
-html::-webkit-scrollbar-track { 
-background: #fff; 
-} 
-html::-webkit-scrollbar-thumb { 
-background: #27ae60; 
-border-radius: 5rem; 
-} 
-section { 
-padding: 2rem 9%; 
-} 
-.heading { 
-text-align: center; 
-padding-bottom: 2rem; 
-} 
-.heading span { 
-font-family: 'Satisfy', cursive; 
-font-size: 3rem; 
-color: #27ae60; 
-} 
+      <nav class="navbar">
+        <a href="#home">home</a>
+        <a href="#about">about</a>
+        <a href="#popular">popular</a>
+        <a href="#menu">menu</a>
+        <a href="#order">order</a>
+        <a href="#blogs">blogs</a>
+      </nav>
 
- 
-.heading h3 { 
-  font-size: 3rem; 
-  color: #130f40; 
-} 
- 
-.btn { 
-  display: inline-block; 
-  margin-top: 1rem; 
-  padding: .7rem 1.8rem; 
-  font-size: 1.7rem; 
-  cursor: pointer; 
-  color: #fff; 
-  background: #27ae60; 
-  border-radius: .5rem; 
-} 
- 
-.btn:hover { 
-  background: #2CA44A; 
-} 
- 
-.header { 
-  position: -webkit-sticky; 
-  position: sticky; 
-  top: 0; 
-  left: 0; 
-  right: 0; 
-  z-index: 1000; 
-  background: #fff; 
-  -webkit-box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.05); 
-          box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.05); 
-  display: -webkit-box; 
-  display: -ms-flexbox; 
-  display: flex; 
-  -webkit-box-align: center; 
-      -ms-flex-align: center; 
-          align-items: center; 
-  -webkit-box-pack: justify; 
-      -ms-flex-pack: justify; 
-          justify-content: space-between; 
-  padding: 2rem 9%; 
-} 
-.header .logo { 
-font-size: 2.5rem; 
-font-weight: bolder; 
-color: #130f40; 
-} 
-.header .logo i { 
-padding-right: .5rem; 
-color: #27ae60; 
-} 
-.header .navbar a { 
-font-size: 1.7rem; 
-margin: 0 1rem; 
-color: #666; 
-} 
-.header .navbar a:hover { 
-color: #27ae60; 
-} 
-.header .icons div { 
-height: 4.5rem; 
-width: 4.5rem; 
-line-height: 4.5rem; 
-font-size: 2rem; 
-background: #f7f7f7; 
-color: #2CA44A; 
-border-radius: .5rem; 
-margin-left: .3rem; 
-cursor: pointer; 
-text-align: center; 
-} 
-.header .icons div:hover { 
-color: #fff; 
-background: #27ae60; 
-} 
- 
- 
-#menu-btn { 
-  display: none; 
-} 
- 
-@-webkit-keyframes fadeUp { 
-  0% { 
-    -webkit-transform: translateY(5rem); 
-            transform: translateY(5rem); 
-    opacity: 0; 
-  } 
-} 
- 
-@keyframes fadeUp { 
-  0% { 
-    -webkit-transform: translateY(5rem); 
-            transform: translateY(5rem); 
-    opacity: 0; 
-  } 
-} 
- 
-.search-form-container { 
-  position: fixed; 
-  top: 8.5rem; 
-  left: 0; 
-  right: 0; 
-  height: calc(100vh - 8.5rem); 
-  background: #fff; 
-  z-index: 1000; 
-  display: none; 
-} 
- 
-.search-form-container.active { 
-  display: block; 
-} 
- 
-.search-form-container form { 
-  height: 7rem; 
-  border-bottom: 0.2rem solid #2CA44A; 
-  width: 100%; 
- 
-  display: -webkit-box; 
-  display: -ms-flexbox; 
-  display: flex; 
-  -webkit-box-align: center; 
-      -ms-flex-align: center; 
-          align-items: center; 
-  -webkit-animation: fadeUp .4s linear; 
-          animation: fadeUp .4s linear; 
-} 
- 
-.search-form-container form input { 
-  height: 100%; 
-  width: 100%; 
-  font-size: 1.7rem; 
-  color: #130f40; 
-  text-transform: none; 
-  padding-right: 1rem; 
-} 
- 
-.search-form-container form label { 
-  font-size: 3rem; 
-  cursor: pointer; 
-  color: #130f40; 
-} 
- 
-.search-form-container form label:hover { 
-  color: #27ae60; 
-} 
- 
-.shopping-cart-container { 
-  position: fixed; 
-  top: 8.5rem; 
-  left: 0; 
-  right: 0; 
-  z-index: 1000; 
-  height: calc(100vh - 8.5rem); 
-  background: #fff; 
-  overflow-y: scroll; 
-  padding-bottom: 8rem; 
-  display: none; 
-} 
-.shopping-cart-container.active { 
-display: block; 
-} 
-.shopping-cart-container::-webkit-scrollbar { 
-width: 1rem; 
-} 
-.shopping-cart-container::-webkit-scrollbar-track { 
-background: #fff; 
-} 
-.shopping-cart-container::-webkit-scrollbar-thumb { 
-background: #130f40; 
-border-radius: 5rem; 
-} 
-.shopping-cart-container .title { 
-font-size: 2.5rem; 
-padding: 1rem; 
-color: #130f40; 
-border-bottom: 0.1rem solid rgba(0, 0, 0, 0.2); 
-text-align: center; 
-} 
-.shopping-cart-container .products-container { 
-border: 0.1rem solid rgba(0, 0, 0, 0.2); 
-border-radius: .5rem; -webkit-animation: fadeUp .4s linear; 
-animation: fadeUp .4s linear; 
-} 
-.shopping-cart-container .products-container .box-container { 
-display: -ms-grid; 
-display: grid; -ms-grid-columns: (minmax(30rem, 1fr))[auto-fit]; 
-grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr)); 
-gap: 1.5rem; 
+      <div class="icons">
+        <div id="menu-btn" class="fas fa-bars"></div>
+        <div id="search-btn" class="fas fa-search"></div>
+        <div id="cart-btn" class="fas fa-shopping-cart"></div>
+        <div id="login-btn" class="fas fa-user"></div>
+      </div>
+    </header>
 
-padding: 1.5rem; 
-} 
-.shopping-cart-container .products-container .box-container .box { 
-border-radius: .5rem; 
-background: #f7f7f7; 
-display: -webkit-box; 
-display: -ms-flexbox; 
-display: flex; -webkit-box-align: center; -ms-flex-align: center; 
-align-items: center; 
-gap: 1.5rem; 
-padding: 2rem; 
-position: relative; 
-} 
-.shopping-cart-container .products-container .box-container .box .fa-times { 
-position: absolute; 
-top: .7rem; 
-right: 1rem; 
-font-size: 2rem; 
-cursor: pointer; 
-color: #130f40; 
-} 
-.shopping-cart-container .products-container .box-container .box .fa
-times:hover { 
-color: #27ae60; 
-} 
-.shopping-cart-container .products-container .box-container .box img { 
-height: 8rem; 
-} 
-.shopping-cart-container .products-container .box-container .box .content h3 { 
-font-size: 2rem; 
-color: #130f40; 
-} 
-.shopping-cart-container .products-container .box-container .box .content span 
-{ 
-font-size: 1.5rem; 
-color: #666; 
-} 
-.shopping-cart-container .products-container .box-container .box .content 
-span.price { 
-color: #27ae60; 
-font-size: 1.7rem; 
-} 
-.shopping-cart-container .products-container .box-container .box .content 
-input { 
-width: 8rem; 
-padding: .5rem 1.2rem; 
-font-size: 1.5rem; 
-color: #130f40; 
-margin: .7rem 0; 
-} 
-.shopping-cart-container .cart-total { 
-margin-top: 2rem; 
-border: 0.1rem solid rgba(0, 0, 0, 0.2); 
-border-radius: .5rem; -webkit-animation: fadeUp .4s linear .4s backwards; 
-animation: fadeUp .4s linear .4s backwards; 
-} 
-.shopping-cart-container .cart-total .box { 
-padding: 1.5rem; 
-} 
-.shopping-cart-container .cart-total .box h3 { 
-color: #130f40; 
-font-size: 2rem; 
-padding-bottom: .7rem; 
-} 
-.shopping-cart-container .cart-total .box h3 span { 
- 
-  color: #27ae60; 
-} 
- 
-.login-form-container { 
-  position: fixed; 
-  top: 8.5rem; 
-  left: 0; 
-  right: 0; 
-  z-index: 1000; 
-  height: calc(100vh - 8.5rem); 
-  background: #fff; 
-  padding: 0 2rem; 
-  display: none; 
-} 
- 
-.login-form-container.active { 
-  display: block; 
-} 
- 
-.login-form-container form { 
-  margin: 2rem auto; 
-  max-width: 40rem; 
-  -webkit-box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.05); 
-          box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.05); 
-  border: 0.1rem solid rgba(0, 0, 0, 0.2); 
-  padding: 2rem; 
-  border-radius: .5rem; 
-  -webkit-animation: fadeUp .4s linear; 
-          animation: fadeUp .4s linear; 
-} 
- 
-.login-form-container form h3 { 
-  padding-bottom: 1rem; 
-  font-size: 2.5rem; 
-  text-transform: uppercase; 
-  color: #130f40; 
-} 
- 
-.login-form-container form .box { 
-  margin: .7rem 0; 
-border-radius: .5rem; 
-background: #f7f7f7; 
-padding: 1rem 1.2rem; 
-font-size: 1.6rem; 
-color: #130f40; 
-text-transform: none; 
-width: 100%; 
-} 
-.login-form-container form .remember { 
-padding: 1rem 0; 
-display: -webkit-box; 
-display: -ms-flexbox; 
-display: flex; -webkit-box-align: center; -ms-flex-align: center; 
-align-items: center; 
-gap: .5rem; 
-} 
-.login-form-container form .remember label { 
-font-size: 1.5rem; 
-cursor: pointer; 
-color: #666; 
-} 
-.login-form-container form .btn { 
-margin: 1rem 0; 
-width: 100%; 
-text-align: center; 
-} 
-.login-form-container form p { 
-padding-top: 1rem; 
-font-size: 1.5rem; 
-color: #666; 
-} 
-.login-form-container form p a { 
-color: #27ae60; 
+    <!-- header section ends  -->
 
- 
-} 
- 
-.login-form-container form p a:hover { 
-  color: #130f40; 
-  text-decoration: underline; 
-} 
- 
-.home { 
-  display: -webkit-box; 
-  display: -ms-flexbox; 
-  display: flex; 
-  -webkit-box-align: center; 
-      -ms-flex-align: center; 
-          align-items: center; 
-  -ms-flex-wrap: wrap-reverse; 
-      flex-wrap: wrap-reverse; 
-  gap: 2rem; 
-  position: relative; 
-  overflow: hidden; 
-} 
- 
-.home .content { 
-  -webkit-box-flex: 1; 
-      -ms-flex: 1 1 41rem; 
-          flex: 1 1 41rem; 
-} 
- 
-.home .content span { 
-  font-size: 2rem; 
-  color: #27ae60; 
-} 
- 
-.home .content h3 { 
-  font-size: 4rem; 
-  color: #130f40; 
-  padding-top: 1rem; 
-} 
- 
-.home .content p { 
-  font-size: 1.4rem; 
- 
-  color: #666; 
-  line-height: 2; 
-  padding: 1rem 0; 
-} 
- 
-.home .image { 
-  -webkit-box-flex: 1; 
-      -ms-flex: 1 1 41rem; 
-          flex: 1 1 41rem; 
-  margin: 2rem 0; 
-  pointer-events: none; 
-} 
- 
-.home .image .home-img { 
-  width: 100%; 
-  margin-top: 5rem; 
-} 
- 
-.home .home-parallax-img { 
-  position: absolute; 
-  top: -10rem; 
-  right: -10rem; 
-  width: 80vw; 
-} 
- 
-.category { 
-  display: -ms-grid; 
-  display: grid; 
-  -ms-grid-columns: (minmax(16rem, 1fr))[auto-fit]; 
-      grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); 
-  gap: 1.5rem; 
-  padding-bottom: 5rem; 
-} 
- 
-.category .box { 
-  padding: 2rem; 
-  text-align: center; 
-  border-radius: .5rem; 
-  background: #f7f7f7; 
-} 
+    <!-- search-form  -->
 
- 
-.category .box:hover { 
-  background: #27ae60; 
-} 
- 
-.category .box:hover h3 { 
-  color: #fff; 
-} 
- 
-.category .box img { 
-  height: 7rem; 
-} 
- 
-.category .box h3 { 
-  font-size: 1.8rem; 
-  color: #130f40; 
-} 
- 
-.about { 
-  display: -webkit-box; 
-  display: -ms-flexbox; 
-  display: flex; 
-  -ms-flex-wrap: wrap; 
-      flex-wrap: wrap; 
-  -webkit-box-align: center; 
-      -ms-flex-align: center; 
-          align-items: center; 
-  gap: 2rem; 
-  background: #f7f7f7; 
-} 
- 
-.about .image { 
-  -webkit-box-flex: 1; 
-      -ms-flex: 1 1 40rem; 
-          flex: 1 1 40rem; 
-} 
- 
-.about .image img { 
-  width: 100%; 
-} 
- 
- 
-.about .content { 
-  -webkit-box-flex: 1; 
-      -ms-flex: 1 1 40rem; 
-          flex: 1 1 40rem; 
-} 
- 
-.about .content span { 
-  font-family: 'Satisfy', cursive; 
-  font-size: 3rem; 
-  color: #27ae60; 
-} 
- 
-.about .content .title { 
-  font-size: 3rem; 
-  padding-top: .5rem; 
-  color: #130f40; 
-} 
- 
-.about .content p { 
-  padding: 1rem 0; 
-  line-height: 2; 
-  font-size: 1.4rem; 
-  color: #666; 
-} 
- 
-.about .content .icons-container { 
-  margin-top: 2rem; 
-  display: -webkit-box; 
-  display: -ms-flexbox; 
-  display: flex; 
-  -ms-flex-wrap: wrap; 
-      flex-wrap: wrap; 
-  gap: 1.5rem; 
-} 
- 
-.about .content .icons-container .icons { 
-  -webkit-box-flex: 1; 
-      -ms-flex: 1 1 20rem; 
-          flex: 1 1 20rem; 
-  border-radius: .5rem; 
-  background: #fff; 
-  -webkit-box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.05); 
-          box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.05); 
-  display: -webkit-box; 
-  display: -ms-flexbox; 
-  display: flex; 
-  -webkit-box-align: center; 
-      -ms-flex-align: center; 
-          align-items: center; 
-  gap: 2rem; 
-  padding: 2rem; 
-} 
- 
-.about .content .icons-container .icons h3 { 
-  font-size: 1.7rem; 
-  color: #130f40; 
-} 
- 
-.popular .box-container { 
-  display: -ms-grid; 
-  display: grid; 
-  -ms-grid-columns: (minmax(25rem, 1fr))[auto-fit]; 
-      grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr)); 
-  gap: 1.5rem; 
-} 
- 
-.popular .box-container .box { 
-  border-radius: .5rem; 
-  position: relative; 
-  background: #f7f7f7; 
-  padding: 2rem; 
-  text-align: center; 
-} 
- 
-.popular .box-container .box .fa-heart { 
-  position: absolute; 
-  top: 1.5rem; 
-  right: 1.5rem; 
-  font-size: 2.5rem; 
-color: #666; 
-cursor: pointer; 
-} 
-.popular .box-container .box .fa-heart:hover { 
-color: #27ae60; 
-} 
-.popular .box-container .box .image { 
-margin: 1rem 0; 
-} 
-.popular .box-container .box .image img { 
-height: 15rem; 
-} 
-.popular .box-container .box .content h3 { 
-font-size: 2rem; 
-color: #130f40; 
-} 
-.popular .box-container .box .content .stars { 
-padding: 1rem 0; 
-font-size: 1.7rem; 
-} 
-.popular .box-container .box .content .stars i { 
-color: gold; 
-} 
-.popular .box-container .box .content .stars span { 
-color: #666; 
-} 
-.popular .box-container .box .content .price { 
-font-size: 2rem; 
-color: #130f40; 
-} 
-.popular .box-container .box .content .price span { 
+    <section class="search-form-container">
+      <form action="">
+        <input
+          type="search"
+          name=""
+          placeholder="search here..."
+          id="searchbox"
+        />
+        <label for="search-box" class="fas fa-search"></label>
+      </form>
+    </section>
 
-font-size: 1.5rem; 
-color: #666; 
-text-decoration: line-through; 
-} 
-.banner .row-banner { 
-background: url(./img/combo\ fodd.avif) no-repeat; 
-height: 45rem; 
-background-size: cover; 
-background-position: center; 
-position: relative; 
-border-radius: 20px;
-} 
-.banner .row-banner .content { 
-position: absolute; 
-top: 50%; 
-left: 7%; -webkit-transform: translateY(-50%); 
-transform: translateY(-50%); 
-} 
-.banner .row-banner .content span { 
-font-family: 'Satisfy', cursive; 
-font-size: 4rem; 
-color: #27ae60; 
-color: #07d3ee; 
-} 
-.banner .row-banner .content h3 { 
-font-size: 6rem; 
-color: red; 
-text-transform: uppercase; 
-} 
-.banner .row-banner .content p { 
-font-size: 2rem; 
-padding-bottom: 1rem;
-color: rgb(9, 230, 246); 
-} 
-.banner .grid-banner { 
+    <!-- shopping-cart section  -->
 
-display: -ms-grid; 
-display: grid; -ms-grid-columns: (minmax(30rem, 1fr))[auto-fit]; 
-grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr)); 
-gap: 1.5rem; 
-} 
-.banner .grid-banner .grid { 
-position: relative; 
-border-radius: 1rem; 
-overflow: hidden; 
-height: 45rem; 
-} 
-.banner .grid-banner .grid:hover img { -webkit-transform: scale(1.2); 
-transform: scale(1.2); 
-} 
-.banner .grid-banner .grid img { 
-height: 100%; 
-width: 100%; -o-object-fit: cover; 
-object-fit: cover; 
-} 
-.banner .grid-banner .grid .content { 
-position: absolute; 
-top: 2rem; 
-padding: 0 2rem; 
-} 
-.banner .grid-banner .grid .content.center { 
-text-align: center; 
-width: 100%; 
-} 
-.banner .grid-banner .grid .content.center span { 
-color: #666; 
-} 
- 
- 
-.banner .grid-banner .grid .content.center h3 { 
-  color: #130f40; 
-} 
- 
-.banner .grid-banner .grid .content span { 
-  font-size: 2.5rem; 
-  color: #1509f3; 
-} 
- 
-.banner .grid-banner .grid .content h3 { 
-  font-size: 3rem; 
-  color: #fdfdfd; 
-  padding-top: .5rem; 
-} 
- 
-.menu .box-container { 
-  display: -ms-grid; 
-  display: grid; 
-  -ms-grid-columns: (minmax(30rem, 1fr))[auto-fit]; 
-      grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr)); 
-  gap: 1.5rem; 
-} 
- 
-.menu .box-container .box { 
-  border-radius: .5rem; 
-  background: #f7f7f7; 
-  padding: 2rem; 
-  display: -webkit-box; 
-  display: -ms-flexbox; 
-  display: flex; 
-  -webkit-box-align: center; 
-      -ms-flex-align: center; 
-          align-items: center; 
-  gap: 1.5rem; 
-} 
- 
-.menu .box-container .box:hover { 
-  background: #130f40; 
-} 
-.menu .box-container .box:hover .content h3 { 
-color: #fff; 
-} 
-.menu .box-container .box img { 
-height: 10rem; 
-} 
-.menu .box-container .box .content h3 { 
-font-size: 2rem; 
-color: #130f40; 
-padding-bottom: .5rem; 
-} 
-.menu .box-container .box .content .price { 
-font-size: 1.8rem; 
-color: #27ae60; 
-} 
-.order .icons-container { 
-display: -ms-grid; 
-display: grid; -ms-grid-columns: (minmax(30rem, 1fr))[auto-fit]; 
-grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr)); 
-gap: 1.5rem; 
-margin-bottom: 2rem; 
-} 
-.order .icons-container .icons { 
-border-radius: .5rem; 
-padding: 2rem; 
-text-align: center; 
-background: #f7f7f7; 
-} 
-.order .icons-container .icons img { 
-height: 10rem; 
-} 
- 
-.order .icons-container .icons h3 { 
-  font-size: 2rem; 
-  color: #130f40; 
-  margin-top: .5rem; 
-} 
- 
-.order form { 
-  background: #f7f7f7; 
-  padding: 2rem; 
-  border-radius: .5rem; 
-} 
- 
-.order form .flex { 
-  display: -webkit-box; 
-  display: -ms-flexbox; 
-  display: flex; 
-  -ms-flex-wrap: wrap; 
-      flex-wrap: wrap; 
-  -webkit-box-pack: justify; 
-      -ms-flex-pack: justify; 
-          justify-content: space-between; 
-} 
- 
-.order form .flex .inputBox { 
-  width: 49%; 
-  padding: .7rem 0; 
-} 
- 
-.order form .flex span { 
-  font-size: 1.7rem; 
-  color: #666; 
-} 
- 
-.order form .flex input, .order form .flex textarea { 
-  width: 100%; 
-  margin-top: .5rem; 
-  padding: 1rem 1.2rem; 
-  width: 100%; 
-  border-radius: .5rem; 
-  font-size: 1.6rem; 
-text-transform: none; 
-color: #130f40; 
-} 
-.order form .flex textarea { 
-height: 20rem; 
-resize: none; 
-} 
-.order form .flex .map { 
-height: 100%; 
-width: 100%; 
-border-radius: .5rem; 
-} 
-.blogs .box-container { 
-display: -ms-grid; 
-display: grid; -ms-grid-columns: (minmax(30rem, 1fr))[auto-fit]; 
-grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr)); 
-gap: 1.5rem; 
-} 
-.blogs .box-container .box { 
-border-radius: .5rem; 
-overflow: hidden; 
-} 
-.blogs .box-container .box:hover .image h3 { 
-left: 1.5rem; 
-} 
-.blogs .box-container .box:hover .image img { -webkit-transform: scale(1.1); 
-transform: scale(1.1); 
-} 
-.blogs .box-container .box .image { 
-position: relative; 
-height: 25rem; 
-overflow: hidden; 
-width: 100%; 
-} 
-.blogs .box-container .box .image h3 { 
-position: absolute; 
-z-index: 10; 
-top: 1rem; 
-left: -100%; 
-border-radius: .5rem; 
-padding: .5rem 1rem; 
-background: #fff; 
-color: #130f40; 
-font-size: 1.5rem; 
-} 
-.blogs .box-container .box .image h3 i { 
-padding-right: .5rem; 
-color: #27ae60; 
-} 
-.blogs .box-container .box .image img { 
-height: 100%; 
-width: 100%; -o-object-fit: cover; 
-object-fit: cover; 
-} 
-.blogs .box-container .box .content { 
-padding: 2rem 1.5rem; 
-background: #f7f7f7; 
-} 
-.blogs .box-container .box .content .tags { 
-padding-bottom: 1rem; 
-} 
-.blogs .box-container .box .content .tags a { 
-font-size: 1.5rem; 
-color: #666; 
+    <section class="shopping-cart-container">
+      <div class="products-container">
+        <h3 class="title">your products</h3>
 
-padding-right: .5rem; 
-} 
-.blogs .box-container .box .content .tags a:hover { 
-color: #27ae60; 
-} 
-.blogs .box-container .box .content .tags a i { 
-color: #27ae60; 
-padding-right: .5rem; 
-} 
-.blogs .box-container .box .content h3 { 
-font-size: 2rem; 
-color: #130f40; 
-} 
-.blogs .box-container .box .content p { 
-font-size: 1.4rem; 
-color: #666; 
-padding: 1rem 0; 
-line-height: 2; 
-} 
-.footer { 
-background: #f7f7f7; 
-} 
-.footer .newsletter { 
-text-align: center; 
-margin-bottom: 2rem; 
-} 
-.footer .newsletter h3 { 
-font-size: 2.5rem; 
-color: #130f40; 
-padding-bottom: 1rem; 
-} 
-.footer .newsletter form { 
-max-width: 70rem; 
-margin: 1rem auto; 
-max-width: 70rem; 
-display: -webkit-box; 
-display: -ms-flexbox; 
-display: flex; 
-border-radius: .5rem; 
-overflow: hidden; 
-} 
-.footer .newsletter form input[type="email"] { 
-height: 100%; 
-width: 100%; 
-padding: 1rem 1.2rem; 
-font-size: 1.6rem; 
-color: #130f40; 
-text-transform: none; 
-} 
-.footer .newsletter form input[type="submit"] { 
-padding: 0 2rem; 
-font-size: 1.6rem; 
-color: #fff; 
-background: #27ae60; 
-cursor: pointer; 
-} 
-.footer .newsletter form input[type="submit"]:hover { 
-background: #2CA44A; 
-} 
-.footer .box-container { 
-display: -ms-grid; 
-display: grid; -ms-grid-columns: (minmax(25rem, 1fr))[auto-fit]; 
-grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr)); 
-gap: 1.5rem; 
-} 
-.footer .box-container .box h3 { 
+        <div class="box-container">
+          <div class="box">
+            <i class="fas fa-times"></i>
+            <img src="./img/OIP.jpeg" alt="" width="" />
+            <div class="content">
+              <h3>delicious food</h3>
 
-font-size: 2.2rem; 
-color: #130f40; 
-padding: 1rem 0; 
-} 
-.footer .box-container .box p { 
-font-size: 1.4rem; 
-color: #666; 
-padding: 1rem 0; 
-} 
-.footer .box-container .box a { 
-display: block; 
-font-size: 1.4rem; 
-color: #666; 
-padding: 1rem 0; 
-} 
-.footer .box-container .box a:hover { 
-color: #27ae60; 
-} 
-.footer .box-container .box a:hover i { 
-padding-right: 2rem; 
-} 
-.footer .box-container .box a i { 
-padding-right: .5rem; 
-color: #27ae60; 
-} 
-.footer .bottom { 
-padding-top: 1rem; 
-text-align: center; 
-} 
-.footer .bottom .share { 
-margin: 1.5rem 0; 
-} 
- 
-.footer .bottom .share a { 
-  height: 4.5rem; 
-  width: 4.5rem; 
-  line-height: 4.5rem; 
-  font-size: 2rem; 
-  border-radius: .5rem; 
-  margin: 0 .3rem; 
-  color: #fff; 
-  background: #27ae60; 
-} 
- 
-.footer .bottom .share a:hover { 
-  background: #2CA44A; 
-} 
- 
-.footer .bottom .credit { 
-  font-size: 2rem; 
-  color: #666; 
-  padding: 1rem; 
-} 
- 
-.footer .bottom .credit span { 
-  color: #27ae60; 
-} 
- 
-@media (max-width: 991px) { 
-  html { 
-    font-size: 55%; 
-  } 
-  .header { 
-    padding: 2rem; 
-  } 
-  section { 
-    padding: 2rem; 
-  } 
-} 
- 
-@media (max-width: 768px) { 
-  #menu-btn { 
-    display: inline-block; 
- 
-  } 
-  .header .navbar { 
-    position: absolute; 
-    top: 99%; 
-    left: 0; 
-    right: 0; 
-    background: #fff; 
-    border-top: 0.1rem solid rgba(0, 0, 0, 0.2); 
-    border-bottom: 0.1rem solid rgba(0, 0, 0, 0.2); 
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 0, 0 0); 
-            clip-path: polygon(0 0, 100% 0, 100% 0, 0 0); 
-  } 
-  .header .navbar.active { 
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%); 
-            clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%); 
-  } 
-  .header .navbar a { 
-    font-size: 2rem; 
-    margin: 2rem; 
-    display: block; 
-  } 
-  .home .home-parallax-img { 
-    top: 0; 
-    right: 0; 
-    width: 130%; 
-  } 
-  .order form .flex .inputBox { 
-    width: 100%; 
-  } 
-} 
- 
-@media (max-width: 450px) { 
-  html { 
-    font-size: 50%; 
-  } 
-  .shopping-cart-container .cart-total .box { 
-    text-align: center; 
-  } 
-  .shopping-cart-container .cart-total .box .btn { 
-    width: 100%; 
+              <span> quantity : </span>
+              <input type="number" name="" value="1" id="" />
+              <br />
+              <span> price : </span>
+              <span class="price"> $40.00 </span>
+            </div>
+          </div>
 
- 
-  } 
-  .home .content h3 { 
-    font-size: 3rem; 
-  } 
-  .home .content p { 
-    font-size: 1.5rem; 
-  } 
-} 
-/*# sourceMappingURL=style.css.map */ 
+          <div class="box">
+            <i class="fas fa-times"></i>
+            <img src="./images/menu-2.png" alt="" />
+            <div class="content">
+              <h3>delicious food</h3>
+              <span> quantity : </span>
+              <input type="number" name="" value="1" id="" />
+              <br />
+              <span> price : </span>
+              <span class="price"> $40.00 </span>
+            </div>
+          </div>
 
-    </style>
- 
-</head> 
-<body> 
-<header class="header"> 
- 
-    <a href="#" class="logo"> <i class="fas fa-utensils"></i> foodie </a> 
- 
-    <nav class="navbar"> 
-        <a href="#home">home</a> 
-        <a href="#about">about</a> 
-        <a href="#popular">popular</a> 
-        <a href="#menu">menu</a> 
-        <a href="#order">order</a> 
-        <a href="#blogs">blogs</a> 
+          <div class="box">
+            <i class="fas fa-times"></i>
+            <img src="image/menu-3.png" alt="" />
+            <div class="content">
+              <h3>delicious food</h3>
+              <span> quantity : </span>
+              <input type="number" name="" value="1" id="" />
+              <br />
+              <span> price : </span>
+              <span class="price"> $40.00 </span>
+            </div>
+          </div>
 
- 
-    </nav> 
- 
-    <div class="icons"> 
-        <div id="menu-btn" class="fas fa-bars"></div> 
-        <div id="search-btn" class="fas fa-search"></div> 
-        <div id="cart-btn" class="fas fa-shopping-cart"></div> 
-        <div id="login-btn" class="fas fa-user"></div> 
-    </div> 
- 
-</header> 
- 
-<!-- header section ends  --> 
- 
-<!-- search-form  --> 
- 
-<section class="search-form-container"> 
- 
-    <form action=""> 
-        <input type="search" name="" placeholder="search here..." id="searchbox"> 
-        <label for="search-box" class="fas fa-search"></label> 
-    </form> 
- 
-</section> 
- 
-<!-- shopping-cart section  --> 
- 
-<section class="shopping-cart-container"> 
- 
-    <div class="products-container"> 
- 
-        <h3 class="title">your products</h3> 
- 
-        <div class="box-container"> 
- 
-            <div class="box"> 
-                <i class="fas fa-times"></i> 
-                <img src="./img/OIP.jpeg" alt="" width=""> 
-                <div class="content"> 
-                    <h3>delicious food</h3> 
+          <div class="box">
+            <i class="fas fa-times"></i>
+            <img src="image/menu-4.png" alt="" />
+            <div class="content">
+              <h3>delicious food</h3>
+              <span> quantity : </span>
 
- 
-                    <span> quantity : </span> 
-                    <input type="number" name="" value="1" id=""> 
-                    <br> 
-                    <span> price : </span> 
-                    <span class="price"> $40.00 </span> 
-                </div> 
-            </div> 
- 
-            <div class="box"> 
-                <i class="fas fa-times"></i> 
-                <img src="./images/menu-2.png" alt=""> 
-                <div class="content"> 
-                    <h3>delicious food</h3> 
-                    <span> quantity : </span> 
-                    <input type="number" name="" value="1" id=""> 
-                    <br> 
-                    <span> price : </span> 
-                    <span class="price"> $40.00 </span> 
-                </div> 
-            </div> 
- 
-            <div class="box"> 
-                <i class="fas fa-times"></i> 
-                <img src="image/menu-3.png" alt=""> 
-                <div class="content"> 
-                    <h3>delicious food</h3> 
-                    <span> quantity : </span> 
-                    <input type="number" name="" value="1" id=""> 
-                    <br> 
-                    <span> price : </span> 
-                    <span class="price"> $40.00 </span> 
-                </div> 
-            </div> 
- 
-            <div class="box"> 
-                <i class="fas fa-times"></i> 
-                <img src="image/menu-4.png" alt=""> 
-                <div class="content"> 
-                    <h3>delicious food</h3> 
-                    <span> quantity : </span> 
+              <input type="number" name="" value="1" id="" />
+              <br />
+              <span> price : </span>
+              <span class="price"> $40.00 </span>
+            </div>
+          </div>
 
- 
-                    <input type="number" name="" value="1" id=""> 
-                    <br> 
-                    <span> price : </span> 
-                    <span class="price"> $40.00 </span> 
-                </div> 
-            </div> 
- 
-            <div class="box"> 
-                <i class="fas fa-times"></i> 
-                <img src="image/menu-5.png" alt=""> 
-                <div class="content"> 
-                    <h3>delicious food</h3> 
-                    <span> quantity : </span> 
-                    <input type="number" name="" value="1" id=""> 
-                    <br> 
-                    <span> price : </span> 
-                    <span class="price"> $40.00 </span> 
-                </div> 
-            </div> 
- 
-        </div> 
- 
-    </div> 
- 
-    <div class="cart-total"> 
- 
-        <h3 class="title"> cart total </h3> 
- 
-        <div class="box"> 
- 
-            <h3 class="subtotal"> subtotal : <span>$200</span> </h3> 
-            <h3 class="total"> total : <span>$200</span> </h3> 
- 
-            <a href="#" class="btn">proceed to checkout</a> 
- 
-        </div> 
- 
-    </div> 
- 
-</section> 
+          <div class="box">
+            <i class="fas fa-times"></i>
+            <img src="image/menu-5.png" alt="" />
+            <div class="content">
+              <h3>delicious food</h3>
+              <span> quantity : </span>
+              <input type="number" name="" value="1" id="" />
+              <br />
+              <span> price : </span>
+              <span class="price"> $40.00 </span>
+            </div>
+          </div>
+        </div>
+      </div>
 
- 
- 
-<!-- login-form  --> 
- 
-<div class="login-form-container"> 
- 
-    <form action=""> 
-        <h3>login form</h3> 
-        <input type="email" name="" placeholder="enter your email" id="" 
-class="box"> 
-        <input type="password" name="" placeholder="enter your password" 
-id="" class="box"> 
-        <div class="remember"> 
-            <input type="checkbox" name="" id="remember-me"> 
-            <label for="remember-me">remember me</label> 
-        </div> 
-        <input type="submit" value="login now" class="btn"> 
-        <p>forget password? <a href="#">click here</a></p> 
-        <p>don't have an account? <a href="#">create one</a></p> 
-    </form> 
- 
-</div> 
- 
-<!-- home section starts  --> 
- 
-<section class="home" id="home"> 
- 
-    <div class="content"> 
-        <span>welcome foodies</span> 
-        <h3>spices for various tastes</h3> 
-        <p>explore the authentic foodies. treat yourself to delish foodies.</p> 
-        <a href="#" class="btn">order now</a> 
-    </div> 
- 
-    <div class="image"> 
-        <img src="./img/maxresdefault.jpg" alt="" class="home-img" style="border-radius: 20px;" > 
+      <div class="cart-total">
+        <h3 class="title">cart total</h3>
+
+        <div class="box">
+          <h3 class="subtotal">subtotal : <span>$200</span></h3>
+          <h3 class="total">total : <span>$200</span></h3>
+
+          <a href="#" class="btn">proceed to checkout</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- login-form  -->
+
+    <div class="login-form-container">
+      <form action="">
+        <h3>login form</h3>
+        <input
+          type="email"
+          name=""
+          placeholder="enter your email"
+          id=""
+          class="box"
+        />
+        <input
+          type="password"
+          name=""
+          placeholder="enter your password"
+          id=""
+          class="box"
+        />
+        <div class="remember">
+          <input type="checkbox" name="" id="remember-me" />
+          <label for="remember-me">remember me</label>
+        </div>
+        <input type="submit" value="login now" class="btn" />
+        <p>forget password? <a href="#">click here</a></p>
+        <p>don't have an account? <a href="#">create one</a></p>
+      </form>
+    </div>
+
+    <!-- home section starts  -->
+
+    <section class="home" id="home">
+      <div class="content">
+        <span>welcome foodies</span>
+        <h3>spices for various tastes</h3>
+        <p>explore the authentic foodies. treat yourself to delish foodies.</p>
+        <a href="#" class="btn">order now</a>
+      </div>
+
+      <div class="image">
+        <img
+          src="./img/maxresdefault.jpg"
+          alt=""
+          class="home-img"
+          style="border-radius: 20px"
+        />
         <!-- <img src="./img/OIP.jpeg" alt="" class="home-parallax
 img">  -->
-    </div> 
- 
-</section> 
+      </div>
+    </section>
 
- 
- 
-<!-- home section ends  --> 
- 
-<!-- category section starts  --> 
- 
-<section class="category"> 
-   <a href="#" class="box"> 
-      <img src="./img/b.jpeg" alt=""> 
-      <h3>burger</h3> 
-   </a> 
- 
-   <a href="#" class="box"> 
-       <img src="./img/g.jpg" alt=""> 
-       <h3>dinner</h3> 
-   </a> 
- 
-    <a href="#" class="box"> 
-        <img src="./img/p.jpeg" alt=""> 
-        <h3>pizza</h3> 
-    </a> 
- 
-    <a href="#" class="box"> 
-        <img src="./img/c.jpeg" alt=""> 
-        <h3>chicken</h3> 
-    </a> 
- 
-    <a href="#" class="box"> 
-        <img src="./img/cof.jpeg" alt=""> 
-        <h3>coffee</h3> 
-    </a> 
- 
-    <a href="#" class="box"> 
-        <img src="./img/combo.jpeg" alt=""> 
-        <h3>combo</h3> 
-    </a> 
- 
-</section> 
- 
-<!-- category section ends --> 
- 
- 
- 
-<!-- about section starts  --> 
- 
-<section class="about" id="about"> 
- 
-    <div class="image"> 
-        <img src="./img/OIP.jpeg" alt=""> 
-    </div> 
- 
-    <div class="content"> 
-        <span>why choose us?</span> 
-        <h3 class="title">what's make our food delicious!</h3> 
-        <p>It's all about the smell, the taste, how it looks, is it crunchy and how 
-does it feel in mouth. </p> 
-        <a href="#" class="btn">read more</a> 
-        <div class="icons-container"> 
-            <div class="icons"> 
-                <img src="./img/fast.jpeg" alt=""  width="50px" height="50px"> 
-                <h3>fast delivery</h3> 
-            </div> 
-            <div class="icons"> 
-                <img src="./img/fresh.jpeg" alt=""  width="50px" height="50px"> 
-                <h3>fresh food</h3> 
-            </div> 
-            <div class="icons"> 
-                <img src="./img/best.jpeg" alt=""  width="50px" height="50px"> 
-                <h3>best quality</h3> 
-            </div> 
-            <div class="icons"> 
-                <img src="./img/two.jpeg" alt="" width="50px" height="50px"> 
-                <h3>24/7 support</h3> 
-            </div> 
-        </div> 
-    </div> 
- 
-</section> 
- 
-<!-- about section ends --> 
- 
-<!-- popular section starts  --> 
+    <!-- home section ends  -->
 
- 
-<section class="popular" id="popular"> 
- 
-    <div class="heading"> 
-        <span>popular food</span> 
-        <h3>our dishes</h3> 
-    </div> 
- 
-    <div class="box-container"> 
- 
-        <div class="box"> 
-            <a href="#" class="fas fa-heart"></a> 
-            <div class="image"> 
-                <img src="./img/pizza non.jpeg" alt=""> 
-            </div> 
-            <div class="content"> 
-                <h3>non-veg pizza</h3> 
-                <div class="stars"> 
-                    <i class="fas fa-star"></i> 
-                    <i class="fas fa-star"></i> 
-                    <i class="fas fa-star"></i> 
-                    <i class="fas fa-star"></i> 
-                    <i class="fas fa-star-half-alt"></i> 
-                    <span> (60) </span> 
-                </div> 
-                <div class="price">₹80.00 <span>₹120.00</span></div> 
-                <a href="#" class="btn">add to cart</a> 
-            </div> 
-        </div> 
- 
-        <div class="box"> 
-            <a href="#" class="fas fa-heart"></a> 
-            <div class="image"> 
-                <img src="./img/veg pi.jpeg" alt=""> 
-            </div> 
-            <div class="content"> 
-                <h3>veg pizza</h3> 
-                <div class="stars"> 
-                    <i class="fas fa-star"></i> 
-                    <i class="fas fa-star"></i> 
+    <!-- category section starts  -->
 
- 
-                    <i class="fas fa-star"></i> 
-                    <i class="fas fa-star"></i> 
-                    <i class="fas fa-star"></i> 
-                    <span> (100) </span> 
-                </div> 
-                <div class="price">₹70.00 <span>₹80.00</span></div> 
-                <a href="#" class="btn">add to cart</a> 
-            </div> 
-        </div> 
- 
-        <div class="box"> 
-            <a href="#" class="fas fa-heart"></a> 
-            <div class="image"> 
-                <img src="./img/burger.jpeg" alt="" width="150px"> 
-            </div> 
-            <div class="content"> 
-                <h3>burger</h3> 
-                <div class="stars"> 
-                    <i class="fas fa-star"></i> 
-                    <i class="fas fa-star"></i> 
-                    <i class="fas fa-star"></i> 
-                    <i class="fas fa-star"></i> 
-                    <i class="fas fa-star-half-alt"></i> 
-                    <span> (75) </span> 
-                </div> 
-                <div class="price">₹125.00 <span>₹160.00</span></div> 
-                <a href="#" class="btn">add to cart</a> 
-            </div> 
-        </div> 
- 
-        <div class="box"> 
-            <a href="#" class="fas fa-heart"></a> 
-            <div class="image"> 
-                <img src="./img/veg b.jpeg" alt=""> 
-            </div> 
-            <div class="content"> 
-                <h3>veg burger</h3> 
-                <div class="stars"> 
-                    <i class="fas fa-star"></i> 
-                    <i class="fas fa-star"></i> 
+    <section class="category">
+      <a href="#" class="box">
+        <img src="./img/b.jpeg" alt="" />
+        <h3>burger</h3>
+      </a>
 
- 
-                    <i class="fas fa-star"></i> 
-                    <i class="fas fa-star"></i> 
-                    <i class="fas fa-star-half-alt"></i> 
-                    <span> (120) </span> 
-                </div> 
-                <div class="price">₹90.00 <span>₹130.00</span></div> 
-                <a href="#" class="btn">add to cart</a> 
-            </div> 
-        </div> 
- 
-        <div class="box"> 
-            <a href="#" class="fas fa-heart"></a> 
-            <div class="image"> 
-                <img src="./img/jaiozi.jpeg" alt="" width="150px"> 
-            </div> 
-            <div class="content"> 
-                <h3>delicious jiaozi</h3> 
-                <div class="stars"> 
-                    <i class="fas fa-star"></i> 
-                    <i class="fas fa-star"></i> 
-                    <i class="fas fa-star"></i> 
-                    <i class="fas fa-star"></i> 
-                    <i class="fas fa-star-half-alt"></i> 
-                    <span> (70) </span> 
-                </div> 
-                <div class="price">₹100.00 <span>₹130.00</span></div> 
-                <a href="#" class="btn">add to cart</a> 
-            </div> 
-        </div> 
- 
-        <div class="box"> 
-            <a href="#" class="fas fa-heart"></a> 
-            <div class="image"> 
-                <img src="./img/c burger.jpeg" alt=""> 
-            </div> 
-            <div class="content"> 
-                <h3>cheese burger</h3> 
-                <div class="stars"> 
-                    <i class="fas fa-star"></i> 
-                    <i class="fas fa-star"></i> 
- 
-                    <i class="fas fa-star"></i> 
-                    <i class="fas fa-star"></i> 
-                    <i class="fas fa-star-half-alt"></i> 
-                    <span> (85) </span> 
-                </div> 
-                <div class="price">₹120.00 <span>₹150.00</span></div> 
-                <a href="#" class="btn">add to cart</a> 
-            </div> 
-        </div> 
- 
-        <div class="box"> 
-            <a href="#" class="fas fa-heart"></a> 
-            <div class="image"> 
-                <img src="./img/d pizza.jpeg" alt="" width="150px"> 
-            </div> 
-            <div class="content"> 
-                <h3>delicious pizza</h3> 
-                <div class="stars"> 
-                    <i class="fas fa-star"></i> 
-                    <i class="fas fa-star"></i> 
-                    <i class="fas fa-star"></i> 
-                    <i class="fas fa-star"></i> 
-                    <i class="fas fa-star"></i> 
-                    <span> (90) </span> 
-                </div> 
-                <div class="price">₹100.00 <span>₹170.00</span></div> 
-                <a href="#" class="btn">add to cart</a> 
-            </div> 
-        </div> 
- 
-        <div class="box"> 
-            <a href="#" class="fas fa-heart"></a> 
-            <div class="image"> 
-                <img src="./img/c pizza.jpeg" alt="" width="150px"> 
-            </div> 
-            <div class="content"> 
-                <h3>cheese pizza</h3> 
-                <div class="stars"> 
-                    <i class="fas fa-star"></i> 
-                    <i class="fas fa-star"></i> 
+      <a href="#" class="box">
+        <img src="./img/g.jpg" alt="" />
+        <h3>dinner</h3>
+      </a>
 
- 
-                    <i class="fas fa-star"></i> 
-                    <i class="fas fa-star"></i> 
-                    <i class="fas fa-star"></i> 
-                    <span> (70) </span> 
-                </div> 
-                <div class="price">₹100.00 <span>₹150.00</span></div> 
-                <a href="#" class="btn">add to cart</a> 
-            </div> 
-        </div> 
- 
-    </div> 
- 
-</section> 
- 
-<!-- popular section ends --> 
- 
-<!-- banner section starts  --> 
- 
-<section class="banner"> 
- 
-    <div class="row-banner"> 
-        <div class="content"> 
-            <span>double cheese</span> 
-            <h3>burger</h3> 
-            <p>with fries and cocacola</p> 
-            <a href="#" class="btn">order now</a> 
-        </div> 
-    </div> 
-    <br>
- 
-    <div class="grid-banner"> 
-        <div class="grid"> 
-            <img src="./img/display.jpeg" alt=""> 
-            <div class="content"> 
-                <span>special offer</span> 
-                <h3>upto 20% off</h3> 
-                <a href="#" class="btn">order now</a> 
-            </div> 
-        </div> 
-        <div class="grid"> 
-            <img src="./img/biryani.jpeg" alt=""> 
+      <a href="#" class="box">
+        <img src="./img/p.jpeg" alt="" />
+        <h3>pizza</h3>
+      </a>
 
- 
-            <div class="content center"> 
-                <span>special offer</span> 
-                <h3>upto 50% extra</h3> 
-                <a href="#" class="btn">order now</a> 
-            </div> 
-        </div> 
-        <div class="grid"> 
-            <img src="./img/combo fodd.avif" alt="" > 
-            <div class="content"> 
-                <span>limited offer</span> 
-                <h3>100% cashback</h3> 
-                <a href="#" class="btn">order now</a> 
-            </div> 
-        </div> 
-    </div> 
- 
-</section> 
- 
-<!-- banner section ends --> 
- 
-<!-- menu section starts  --> 
- 
-<section class="menu" id="menu"> 
- 
-    <div class="heading"> 
-        <span>our menu</span> 
-        <h3>our dishes</h3> 
-    </div> 
- 
-    <div class="box-container"> 
- 
-        <a href="#" class="box"> 
-            <img src="./img/toast.jpg" alt=""> 
-            <div class="content"> 
-                <h3>Toast bread</h3> 
-                <div class="price">₹40.00</div> 
-            </div> 
-        </a> 
- 
-        <a href="#" class="box"> 
+      <a href="#" class="box">
+        <img src="./img/c.jpeg" alt="" />
+        <h3>chicken</h3>
+      </a>
 
- 
-            <img src="./img/c burger.jpeg" alt="" width="100px"> 
-            <div class="content"> 
-                <h3>burger</h3> 
-                <div class="price">₹60.00</div> 
-            </div> 
-        </a> 
- 
-        <a href="#" class="box"> 
-            <img src="./img/b f.jpg" alt="" width="100px"> 
-            <div class="content"> 
-                <h3>hamburger</h3> 
-                <div class="price">₹50.00</div> 
-            </div> 
-        </a> 
- 
-        <a href="#" class="box"> 
-            <img src="./img/french.jpg" alt="" width="100px"> 
-            <div class="content"> 
-                <h3>french fries</h3> 
-                <div class="price">₹30.00</div> 
-            </div> 
-        </a> 
- 
-        <a href="#" class="box"> 
-            <img src="./img/pizza.jpeg" alt=""> 
-            <div class="content"> 
-                <h3>veg pizza</h3> 
-                <div class="price">₹65.00</div> 
-            </div> 
-        </a> 
- 
-        <a href="#" class="box"> 
-            <img src="./img/c pizza.jpeg" alt="" width="100px"> 
-            <div class="content"> 
-                <h3>cheese pizza</h3> 
-                <div class="price">₹55.00</div> 
-            </div> 
-        </a> 
- 
-    </div> 
+      <a href="#" class="box">
+        <img src="./img/cof.jpeg" alt="" />
+        <h3>coffee</h3>
+      </a>
 
- 
- 
-</section> 
- 
-<!-- menu section ends --> 
- 
-<!-- order section starts  --> 
- 
-<section class="order" id="order"> 
- 
-    <div class="heading"> 
-        <span>order now</span> 
-        <h3>fastest home delivery</h3> 
-    </div> 
- 
-    <div class="icons-container"> 
- 
-        <div class="icons"> 
-            <img src="./img/cal.jpg" alt=""> 
-            <h3>8:00am to 11:00pm</h3> 
-        </div> 
- 
-        <div class="icons"> 
-            <img src="./img/phono.jpg" alt=""> 
-            <h3>+91 7901276635</h3> 
-        </div> 
- 
-        <div class="icons"> 
-            <img src="./img/loc.jpg" alt=""> 
-            <h3>Tirupati, india - 524134</h3> 
-        </div> 
- 
-    </div> 
- 
-    <form action=""> 
- 
-        <div class="flex"> 
-            <div class="inputBox"> 
-                <span>Enter your name</span> 
-                <input type="text" placeholder="Enter customer's name" name="" id=""> 
+      <a href="#" class="box">
+        <img src="./img/combo.jpeg" alt="" />
+        <h3>combo</h3>
+      </a>
+    </section>
 
- 
-            </div> 
-            <div class="inputBox"> 
-                <span>Enter your number</span> 
-                <input type="number" placeholder="Enter customer's number" name="" id=""> 
-            </div> 
-        </div> 
- 
-        <div class="flex"> 
-            <div class="inputBox"> 
-                <span>Enter your order</span> 
-                <input type="text" placeholder="Enter food you want" name="" id=""> 
-            </div> 
-            <div class="inputBox"> 
-                <span>Enter how much</span> 
-                <input type="number" placeholder="Enter number or orders" name="" id=""> 
-            </div> 
-        </div> 
- 
-        <div class="flex"> 
-            <div class="inputBox"> 
-                <span>Enter your details</span> 
-                <input type="text" placeholder="Enter your message" name="" id="" style="border-radius: 10%;"> 
-            </div> 
-            <div class="inputBox"> 
-                <span>Enter time</span> 
-                <input type="datetime-local"> 
-            </div> 
-        </div> 
- 
-        <div class="flex"> 
-            <div class="inputBox"> 
-                <textarea placeholder="Enter your address" id="" cols="30" rows="10"></textarea> 
-            </div> 
-            <div class="inputBox"> 
-                <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30153.7
+    <!-- category section ends -->
+
+    <!-- about section starts  -->
+
+    <section class="about" id="about">
+      <div class="image">
+        <img src="./img/OIP.jpeg" alt="" />
+      </div>
+
+      <div class="content">
+        <span>why choose us?</span>
+        <h3 class="title">what's make our food delicious!</h3>
+        <p>
+          It's all about the smell, the taste, how it looks, is it crunchy and
+          how does it feel in mouth.
+        </p>
+        <a href="#" class="btn">read more</a>
+        <div class="icons-container">
+          <div class="icons">
+            <img src="./img/fast.jpeg" alt="" width="50px" height="50px" />
+            <h3>fast delivery</h3>
+          </div>
+          <div class="icons">
+            <img src="./img/fresh.jpeg" alt="" width="50px" height="50px" />
+            <h3>fresh food</h3>
+          </div>
+          <div class="icons">
+            <img src="./img/best.jpeg" alt="" width="50px" height="50px" />
+            <h3>best quality</h3>
+          </div>
+          <div class="icons">
+            <img src="./img/two.jpeg" alt="" width="50px" height="50px" />
+            <h3>24/7 support</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- about section ends -->
+
+    <!-- popular section starts  -->
+
+    <section class="popular" id="popular">
+      <div class="heading">
+        <span>popular food</span>
+        <h3>our dishes</h3>
+      </div>
+
+      <div class="box-container">
+        <div class="box">
+          <a href="#" class="fas fa-heart"></a>
+          <div class="image">
+            <img src="./img/pizza non.jpeg" alt="" />
+          </div>
+          <div class="content">
+            <h3>non-veg pizza</h3>
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+              <span> (60) </span>
+            </div>
+            <div class="price">₹80.00 <span>₹120.00</span></div>
+            <a href="#" class="btn">add to cart</a>
+          </div>
+        </div>
+
+        <div class="box">
+          <a href="#" class="fas fa-heart"></a>
+          <div class="image">
+            <img src="./img/veg pi.jpeg" alt="" />
+          </div>
+          <div class="content">
+            <h3>veg pizza</h3>
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <span> (100) </span>
+            </div>
+            <div class="price">₹70.00 <span>₹80.00</span></div>
+            <a href="#" class="btn">add to cart</a>
+          </div>
+        </div>
+
+        <div class="box">
+          <a href="#" class="fas fa-heart"></a>
+          <div class="image">
+            <img src="./img/burger.jpeg" alt="" width="150px" />
+          </div>
+          <div class="content">
+            <h3>burger</h3>
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+              <span> (75) </span>
+            </div>
+            <div class="price">₹125.00 <span>₹160.00</span></div>
+            <a href="#" class="btn">add to cart</a>
+          </div>
+        </div>
+
+        <div class="box">
+          <a href="#" class="fas fa-heart"></a>
+          <div class="image">
+            <img src="./img/veg b.jpeg" alt="" />
+          </div>
+          <div class="content">
+            <h3>veg burger</h3>
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+              <span> (120) </span>
+            </div>
+            <div class="price">₹90.00 <span>₹130.00</span></div>
+            <a href="#" class="btn">add to cart</a>
+          </div>
+        </div>
+
+        <div class="box">
+          <a href="#" class="fas fa-heart"></a>
+          <div class="image">
+            <img src="./img/jaiozi.jpeg" alt="" width="150px" />
+          </div>
+          <div class="content">
+            <h3>delicious jiaozi</h3>
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+              <span> (70) </span>
+            </div>
+            <div class="price">₹100.00 <span>₹130.00</span></div>
+            <a href="#" class="btn">add to cart</a>
+          </div>
+        </div>
+
+        <div class="box">
+          <a href="#" class="fas fa-heart"></a>
+          <div class="image">
+            <img src="./img/c burger.jpeg" alt="" />
+          </div>
+          <div class="content">
+            <h3>cheese burger</h3>
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+              <span> (85) </span>
+            </div>
+            <div class="price">₹120.00 <span>₹150.00</span></div>
+            <a href="#" class="btn">add to cart</a>
+          </div>
+        </div>
+
+        <div class="box">
+          <a href="#" class="fas fa-heart"></a>
+          <div class="image">
+            <img src="./img/d pizza.jpeg" alt="" width="150px" />
+          </div>
+          <div class="content">
+            <h3>delicious pizza</h3>
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <span> (90) </span>
+            </div>
+            <div class="price">₹100.00 <span>₹170.00</span></div>
+            <a href="#" class="btn">add to cart</a>
+          </div>
+        </div>
+
+        <div class="box">
+          <a href="#" class="fas fa-heart"></a>
+          <div class="image">
+            <img src="./img/c pizza.jpeg" alt="" width="150px" />
+          </div>
+          <div class="content">
+            <h3>cheese pizza</h3>
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <span> (70) </span>
+            </div>
+            <div class="price">₹100.00 <span>₹150.00</span></div>
+            <a href="#" class="btn">add to cart</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- popular section ends -->
+
+    <!-- banner section starts  -->
+
+    <section class="banner">
+      <div class="row-banner">
+        <div class="content">
+          <span>double cheese</span>
+          <h3>burger</h3>
+          <p>with fries and cocacola</p>
+          <a href="#" class="btn">order now</a>
+        </div>
+      </div>
+      <br />
+
+      <div class="grid-banner">
+        <div class="grid">
+          <img src="./img/display.jpeg" alt="" />
+          <div class="content">
+            <span>special offer</span>
+            <h3>upto 20% off</h3>
+            <a href="#" class="btn">order now</a>
+          </div>
+        </div>
+        <div class="grid">
+          <img src="./img/biryani.jpeg" alt="" />
+
+          <div class="content center">
+            <span>special offer</span>
+            <h3>upto 50% extra</h3>
+            <a href="#" class="btn">order now</a>
+          </div>
+        </div>
+        <div class="grid">
+          <img src="./img/combo fodd.avif" alt="" />
+          <div class="content">
+            <span>limited offer</span>
+            <h3>100% cashback</h3>
+            <a href="#" class="btn">order now</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- banner section ends -->
+
+    <!-- menu section starts  -->
+
+    <section class="menu" id="menu">
+      <div class="heading">
+        <span>our menu</span>
+        <h3>our dishes</h3>
+      </div>
+
+      <div class="box-container">
+        <a href="#" class="box">
+          <img src="./img/toast.jpg" alt="" />
+          <div class="content">
+            <h3>Toast bread</h3>
+            <div class="price">₹40.00</div>
+          </div>
+        </a>
+
+        <a href="#" class="box">
+          <img src="./img/c burger.jpeg" alt="" width="100px" />
+          <div class="content">
+            <h3>burger</h3>
+            <div class="price">₹60.00</div>
+          </div>
+        </a>
+
+        <a href="#" class="box">
+          <img src="./img/b f.jpg" alt="" width="100px" />
+          <div class="content">
+            <h3>hamburger</h3>
+            <div class="price">₹50.00</div>
+          </div>
+        </a>
+
+        <a href="#" class="box">
+          <img src="./img/french.jpg" alt="" width="100px" />
+          <div class="content">
+            <h3>french fries</h3>
+            <div class="price">₹30.00</div>
+          </div>
+        </a>
+
+        <a href="#" class="box">
+          <img src="./img/pizza.jpeg" alt="" />
+          <div class="content">
+            <h3>veg pizza</h3>
+            <div class="price">₹65.00</div>
+          </div>
+        </a>
+
+        <a href="#" class="box">
+          <img src="./img/c pizza.jpeg" alt="" width="100px" />
+          <div class="content">
+            <h3>cheese pizza</h3>
+            <div class="price">₹55.00</div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- menu section ends -->
+
+    <!-- order section starts  -->
+
+    <section class="order" id="order">
+      <div class="heading">
+        <span>order now</span>
+        <h3>fastest home delivery</h3>
+      </div>
+
+      <div class="icons-container">
+        <div class="icons">
+          <img src="./img/cal.jpg" alt="" />
+          <h3>8:00am to 11:00pm</h3>
+        </div>
+
+        <div class="icons">
+          <img src="./img/phono.jpg" alt="" />
+          <h3>+91 7901276635</h3>
+        </div>
+
+        <div class="icons">
+          <img src="./img/loc.jpg" alt="" />
+          <h3>Tirupati, india - 524134</h3>
+        </div>
+      </div>
+
+      <form action="">
+        <div class="flex">
+          <div class="inputBox">
+            <span>Enter your name</span>
+            <input
+              type="text"
+              placeholder="Enter customer's name"
+              name=""
+              id=""
+            />
+          </div>
+          <div class="inputBox">
+            <span>Enter your number</span>
+            <input
+              type="number"
+              placeholder="Enter customer's number"
+              name=""
+              id=""
+            />
+          </div>
+        </div>
+
+        <div class="flex">
+          <div class="inputBox">
+            <span>Enter your order</span>
+            <input
+              type="text"
+              placeholder="Enter food you want"
+              name=""
+              id=""
+            />
+          </div>
+          <div class="inputBox">
+            <span>Enter how much</span>
+            <input
+              type="number"
+              placeholder="Enter number or orders"
+              name=""
+              id=""
+            />
+          </div>
+        </div>
+
+        <div class="flex">
+          <div class="inputBox">
+            <span>Enter your details</span>
+            <input
+              type="text"
+              placeholder="Enter your message"
+              name=""
+              id=""
+              style="border-radius: 10%"
+            />
+          </div>
+          <div class="inputBox">
+            <span>Enter time</span>
+            <input type="datetime-local" />
+          </div>
+        </div>
+
+        <div class="flex">
+          <div class="inputBox">
+            <textarea
+              placeholder="Enter your address"
+              id=""
+              cols="30"
+              rows="10"
+            ></textarea>
+          </div>
+          <div class="inputBox">
+            <iframe
+              class="map"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30153.7
 3588252261566!2d72.82321484621745!3d19.141690214227783!2m3!1f0!2f0!3f
  0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b63aceef0c69%3A0x2aa80cf2
  287dfa3b!2sJogeshwari%20West%2C%20Mumbai%2C%20Maharashtra%20400
- 047!5e0!3m2!1sen!2sin!4v1634657187694!5m2!1sen!2sin" allowfullscreen="" 
-loading="lazy"></iframe> 
-            </div> 
-        </div> 
- 
-        <input type="submit" value="proceed to order" class="btn"> 
- 
-    </form> 
- 
-</section> 
- 
-<!-- order section ends --> 
- 
-<!-- blogs section starts  --> 
- 
-<section class="blogs" id="blogs"> 
- 
-    <div class="heading"> 
-        <span>our blogs</span> 
-        <h3>our stories</h3> 
-    </div> 
- 
-    <div class="box-container"> 
- 
-        <div class="box"> 
-            <div class="image"> 
-                <h3> <i class="fas fa-calendar"></i> 19th December, 2022 </h3> 
-                <img src="./img/burger.jpeg" alt=""> 
-            </div> 
-            <div class="content"> 
-                <div class="tags"> 
-                    <a href="#"> <i class="fas fa-tag"></i> food / </a> 
-                    <a href="#"> <i class="fas fa-tag"></i> burger / </a> 
-                    <a href="#"> <i class="fas fa-tag"></i> pizza  </a> 
-                </div> 
-                <h3>Chicken Burgers</h3> 
- 
-                <p>Bread crumbs and milk keep these chicken burgers unbelievably moist and flavourful.</p> 
-                <a href="#" class="btn">read more</a> 
-            </div> 
-        </div> 
- 
-        <div class="box"> 
-            <div class="image"> 
-                <h3> <i class="fas fa-calendar"></i> 15th February, 2022 </h3> 
-                <img src="./img/d pizza.jpeg" alt=""> 
-            </div> 
-            <div class="content"> 
-                <div class="tags"> 
-                    <a href="#"> <i class="fas fa-tag"></i> food / </a> 
-                    <a href="#"> <i class="fas fa-tag"></i> burger / </a> 
-                    <a href="#"> <i class="fas fa-tag"></i> pizza  </a> 
-                </div> 
-                <h3>Delicious Pizza</h3> 
-                <p>Pizza with a topping of chicken pieces loaded with extra cheese</p> 
-                <a href="#" class="btn">read more</a> 
-            </div> 
-        </div> 
- 
-        <div class="box"> 
-            <div class="image"> 
-                <h3> <i class="fas fa-calendar"></i> 25th April, 2024 </h3> 
-                <img src="./img/b and f.jpg" alt=""> 
-            </div> 
-            <div class="content"> 
-                <div class="tags"> 
-                    <a href="#"> <i class="fas fa-tag"></i> food / </a> 
-                    <a href="#"> <i class="fas fa-tag"></i> burger / </a> 
-                    <a href="#"> <i class="fas fa-tag"></i> pizza  </a> 
-                </div> 
-                <h3>Burger with Fries</h3> 
-                <p>Burger with chicken slice and delicious cheese layered on top, plus a side of fries</p> 
-                <a href="#" class="btn">read more</a> 
-            </div> 
+ 047!5e0!3m2!1sen!2sin!4v1634657187694!5m2!1sen!2sin"
+              allowfullscreen=""
+              loading="lazy"
+            ></iframe>
+          </div>
+        </div>
 
- 
-        </div> 
- 
-    </div> 
- 
-</section> 
- 
-<!-- blogs section ends --> 
- 
-<!-- footer section starts  --> 
- 
-<section class="footer"> 
- 
-    <div class="newsletter"> 
-        <h3>newsletter</h3> 
-        <form action=""> 
-            <input type="email" name="" placeholder="Enter your email" id=""> 
-            <input type="submit" value="subscribe"> 
-        </form> 
-    </div> 
- 
-    <div class="box-container"> 
- 
-        <div class="box"> 
-            <h3>menu</h3> 
-            <a href="#"><i class="fas fa-arrow-circle-right"></i> pizza</a> 
-            <a href="#"><i class="fas fa-arrow-circle-right"></i> burger</a> 
-            <a href="#"><i class="fas fa-arrow-circle-right"></i> chicken</a> 
-            <a href="#"><i class="fas fa-arrow-circle-right"></i> pasta</a> 
-            <a href="#"><i class="fas fa-arrow-circle-right"></i> and more...</a> 
-        </div> 
- 
-        <div class="box"> 
-            <h3>quick links</h3> 
-            <a href="#home"> <i class="fas fa-arrow-circle-right"></i> home</a> 
-            <a href="#about"> <i class="fas fa-arrow-circle-right"></i> about</a> 
-            <a href="#popular"> <i class="fas fa-arrow-circle-right"></i> 
-popular</a> 
-            <a href="#menu"> <i class="fas fa-arrow-circle-right"></i> menu</a> 
-            <a href="#order"> <i class="fas fa-arrow-circle-right"></i> order</a> 
-            <a href="#blogs"> <i class="fas fa-arrow-circle-right"></i> blogs</a> 
+        <input type="submit" value="proceed to order" class="btn" />
+      </form>
+    </section>
 
- 
-        </div> 
- 
-        <div class="box"> 
-            <h3>additional links</h3> 
-            <a href="#"> <i class="fas fa-arrow-circle-right"> </i> my order</a> 
-            <a href="#"> <i class="fas fa-arrow-circle-right"> </i> my account</a> 
-            <a href="#"> <i class="fas fa-arrow-circle-right"> </i> my favorite</a> 
-            <a href="#"> <i class="fas fa-arrow-circle-right"> </i> terms of use</a> 
-            <a href="#"> <i class="fas fa-arrow-circle-right"> </i> privary policy</a> 
-        </div> 
- 
-        <div class="box"> 
-            <h3>opening hours</h3> 
-            <p>monday : 8:00am to 11:00pm</p> 
-            <p>tuesday : 8:00am to 11:00pm</p> 
-            <p>wednesday : 8:00am to 11:00pm</p> 
-            <p>thursday : 8:00am to 11:00pm</p> 
-            <p>friday : 8:00am to 11:00pm</p> 
-            <p>saturday and sunday closed</p> 
-        </div> 
- 
-    </div> 
- 
-    <div class="bottom"> 
- 
-        <div class="share"> 
-            <a href="#" class="fab fa-facebook-f"></a> 
-            <a href="#" class="fab fa-twitter"></a> 
-            <a href="#" class="fab fa-instagram"></a> 
-            <a href="#" class="fab fa-linkedin"></a> 
-            <a href="#" class="fab fa-pinterest"></a> 
-        </div> 
- 
-        <div class="credit"> &copy;2024<span> Foddies</span>  all rights reserved 
-</div> 
- 
-    </div> 
- 
-</section> 
- 
-<!-- footer section ends 
+    <!-- order section ends -->
+
+    <!-- blogs section starts  -->
+
+    <section class="blogs" id="blogs">
+      <div class="heading">
+        <span>our blogs</span>
+        <h3>our stories</h3>
+      </div>
+
+      <div class="box-container">
+        <div class="box">
+          <div class="image">
+            <h3><i class="fas fa-calendar"></i> 19th December, 2022</h3>
+            <img src="./img/burger.jpeg" alt="" />
+          </div>
+          <div class="content">
+            <div class="tags">
+              <a href="#"> <i class="fas fa-tag"></i> food / </a>
+              <a href="#"> <i class="fas fa-tag"></i> burger / </a>
+              <a href="#"> <i class="fas fa-tag"></i> pizza </a>
+            </div>
+            <h3>Chicken Burgers</h3>
+
+            <p>
+              Bread crumbs and milk keep these chicken burgers unbelievably
+              moist and flavourful.
+            </p>
+            <a href="#" class="btn">read more</a>
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="image">
+            <h3><i class="fas fa-calendar"></i> 15th February, 2022</h3>
+            <img src="./img/d pizza.jpeg" alt="" />
+          </div>
+          <div class="content">
+            <div class="tags">
+              <a href="#"> <i class="fas fa-tag"></i> food / </a>
+              <a href="#"> <i class="fas fa-tag"></i> burger / </a>
+              <a href="#"> <i class="fas fa-tag"></i> pizza </a>
+            </div>
+            <h3>Delicious Pizza</h3>
+            <p>
+              Pizza with a topping of chicken pieces loaded with extra cheese
+            </p>
+            <a href="#" class="btn">read more</a>
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="image">
+            <h3><i class="fas fa-calendar"></i> 25th April, 2024</h3>
+            <img src="./img/b and f.jpg" alt="" />
+          </div>
+          <div class="content">
+            <div class="tags">
+              <a href="#"> <i class="fas fa-tag"></i> food / </a>
+              <a href="#"> <i class="fas fa-tag"></i> burger / </a>
+              <a href="#"> <i class="fas fa-tag"></i> pizza </a>
+            </div>
+            <h3>Burger with Fries</h3>
+            <p>
+              Burger with chicken slice and delicious cheese layered on top,
+              plus a side of fries
+            </p>
+            <a href="#" class="btn">read more</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- blogs section ends -->
+
+    <!-- footer section starts  -->
+
+    <section class="footer">
+      <div class="newsletter">
+        <h3>newsletter</h3>
+        <form action="">
+          <input type="email" name="" placeholder="Enter your email" id="" />
+          <input type="submit" value="subscribe" />
+        </form>
+      </div>
+
+      <div class="box-container">
+        <div class="box">
+          <h3>menu</h3>
+          <a href="#"><i class="fas fa-arrow-circle-right"></i> pizza</a>
+          <a href="#"><i class="fas fa-arrow-circle-right"></i> burger</a>
+          <a href="#"><i class="fas fa-arrow-circle-right"></i> chicken</a>
+          <a href="#"><i class="fas fa-arrow-circle-right"></i> pasta</a>
+          <a href="#"><i class="fas fa-arrow-circle-right"></i> and more...</a>
+        </div>
+
+        <div class="box">
+          <h3>quick links</h3>
+          <a href="#home"> <i class="fas fa-arrow-circle-right"></i> home</a>
+          <a href="#about"> <i class="fas fa-arrow-circle-right"></i> about</a>
+          <a href="#popular">
+            <i class="fas fa-arrow-circle-right"></i> popular</a
+          >
+          <a href="#menu"> <i class="fas fa-arrow-circle-right"></i> menu</a>
+          <a href="#order"> <i class="fas fa-arrow-circle-right"></i> order</a>
+          <a href="#blogs"> <i class="fas fa-arrow-circle-right"></i> blogs</a>
+        </div>
+
+        <div class="box">
+          <h3>additional links</h3>
+          <a href="#"> <i class="fas fa-arrow-circle-right"> </i> my order</a>
+          <a href="#"> <i class="fas fa-arrow-circle-right"> </i> my account</a>
+          <a href="#">
+            <i class="fas fa-arrow-circle-right"> </i> my favorite</a
+          >
+          <a href="#">
+            <i class="fas fa-arrow-circle-right"> </i> terms of use</a
+          >
+          <a href="#">
+            <i class="fas fa-arrow-circle-right"> </i> privary policy</a
+          >
+        </div>
+
+        <div class="box">
+          <h3>opening hours</h3>
+          <p>monday : 8:00am to 11:00pm</p>
+          <p>tuesday : 8:00am to 11:00pm</p>
+          <p>wednesday : 8:00am to 11:00pm</p>
+          <p>thursday : 8:00am to 11:00pm</p>
+          <p>friday : 8:00am to 11:00pm</p>
+          <p>saturday and sunday closed</p>
+        </div>
+      </div>
+
+      <div class="bottom">
+        <div class="share">
+          <a href="#" class="fab fa-facebook-f"></a>
+          <a href="#" class="fab fa-twitter"></a>
+          <a href="#" class="fab fa-instagram"></a>
+          <a href="#" class="fab fa-linkedin"></a>
+          <a href="#" class="fab fa-pinterest"></a>
+        </div>
+
+        <div class="credit">
+          &copy;2024<span> Foddies</span> all rights reserved
+        </div>
+      </div>
+    </section>
+
+    <!-- footer section ends 
 custom js file link   -->
- <script src="./script.js"></script>  
-</body> 
+    <script src="./script.js"></script>
+  </body>
 </html>
